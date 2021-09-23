@@ -1,0 +1,15 @@
+Consumer Number: 234
+Consumer Name: dfhd
+Total number of units: 5
+Unit Cost: 10
+Total amount: 50
+
+Consumer Number: 346
+Consumer Name: dhdth
+Total number of units: 5
+Unit Cost: 10
+Total amount: 50
+
+
+
+

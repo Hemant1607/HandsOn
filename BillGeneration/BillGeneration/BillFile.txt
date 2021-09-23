@@ -1,0 +1,10 @@
+Bill Number: 391507477
+Consumer Number: 234
+Total amount: 50
+25-09-2021 00:00:00
+
+Bill Number: 391507589
+Consumer Number: 346
+Total amount: 50
+25-09-2021 00:00:00
+
