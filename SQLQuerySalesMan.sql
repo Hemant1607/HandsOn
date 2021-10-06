@@ -53,8 +53,12 @@ insert into orders values(70012,250.45,'2012-06-27',3008,5002)
 insert into orders values(70011,75.29,'2012-08-17',3003,5007)
 insert into orders values(70013,3045.6,'2012-04-25',3002,5001)
 
+truncate table orders
+
 --Q1
 select * from salesman
+select * from customer
+select * from orders
 
 --Q2
 select name,commission from salesman
