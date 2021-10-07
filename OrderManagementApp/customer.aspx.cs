@@ -13,6 +13,17 @@ namespace WebApplication3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                DbCustomer dbcustomer = new DbCustomer();
+                DataTable datatable = dbcustomer.GetSalesmanIds();
+                ddlSalesmanId.Items.Add("---Select---");
+                for (int i = 0; i < datatable.Rows.Count; i++)
+                {
+                    //ddlSalesmanId.Items.Add(datatable.Rows[i][0].ToString() + "-" + datatable.Rows[i][1].ToString());
+                    ddlSalesmanId.Items.Add(new ListItem(datatable.Rows[i][0].ToString() + " - " + datatable.Rows[i][1].ToString(), datatable.Rows[i][0].ToString()));
+                }
+            }
             DbCustomer dbobj = new DbCustomer();
             DataTable dt = dbobj.GetCustomer();
             gvCustomerDetails.DataSource = dt;
@@ -24,12 +35,13 @@ namespace WebApplication3
             string customerName;
             string customerCity;
             string Grade;
-            string salesmanId;
+            //string salesmanId;
+            int salesmanId = Convert.ToInt32(ddlSalesmanId.SelectedValue.ToString());
 
             customerName = CustomerName.Text;
             customerCity = City.Text;
             Grade = grade.Text;
-            salesmanId = SalesmanId.Text;
+            //salesmanId = SalesmanId.Text;
 
             DbCustomer dbobj = new DbCustomer();
             dbobj.InsertCustomer(customerName, customerCity, Grade,salesmanId);
@@ -41,8 +53,9 @@ namespace WebApplication3
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
+            int salesmanId = Convert.ToInt32(ddlSalesmanId.SelectedValue.ToString());
             DbCustomer dbobj = new DbCustomer();
-            dbobj.UpdateCustomer(Convert.ToInt32(lblResult.Text),CustomerName.Text, City.Text, grade.Text, SalesmanId.Text);
+            dbobj.UpdateCustomer(Convert.ToInt32(lblResult.Text),CustomerName.Text, City.Text, grade.Text, salesmanId);
             DataTable dt = dbobj.GetCustomer();
             gvCustomerDetails.DataSource = dt;
             gvCustomerDetails.DataBind();
@@ -58,7 +71,7 @@ namespace WebApplication3
                 CustomerName.Text = dt.Rows[0][1].ToString();
                 City.Text = dt.Rows[0][2].ToString();
                 grade.Text = dt.Rows[0][3].ToString();
-                SalesmanId.Text = dt.Rows[0][4].ToString();
+                //SalesmanId.Text = dt.Rows[0][4].ToString();
                 lblResult.Text = dt.Rows[0][0].ToString();
             }
             else
@@ -69,6 +82,13 @@ namespace WebApplication3
                 gvCustomerDetails.DataSource = dt;
                 gvCustomerDetails.DataBind();
             }
+        }
+
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            CustomerName.Text = string.Empty;
+            grade.Text = string.Empty;
+            City.Text = string.Empty;
         }
 
         protected void gvCustomerDetails_RowDeleting(object sender, GridViewDeleteEventArgs e)

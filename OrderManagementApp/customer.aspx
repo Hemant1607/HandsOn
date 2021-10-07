@@ -24,13 +24,16 @@
                 </tr>
                 <tr>
                     <td>Salesman ID</td>
-                    <td><asp:TextBox ID="SalesmanId" runat="server"></asp:TextBox></td>
+                    <td>
+                        <asp:DropDownList ID="ddlSalesmanId" runat="server">
+                        </asp:DropDownList>
+                    </td>
                 </tr>
                 <tr>
                     <td></td><td>
                         <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"  />
                         <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" />
-                        <asp:Button ID="btnReset" runat="server" Text="Reset"  /></td>
+                        <asp:Button ID="btnReset" runat="server" OnClick="btnReset_Click" Text="Reset"  /></td>
                 </tr>
                 <tr>
                     <td></td><td>

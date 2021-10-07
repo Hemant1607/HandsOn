@@ -42,22 +42,22 @@ namespace WebApplication3
         protected global::System.Web.UI.WebControls.TextBox OrderDate;
 
         /// <summary>
-        /// CustomerID control.
+        /// ddlCustomerId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CustomerID;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCustomerId;
 
         /// <summary>
-        /// SalesmanId control.
+        /// ddlSalesmanId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SalesmanId;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSalesmanId;
 
         /// <summary>
         /// btnSave control.
